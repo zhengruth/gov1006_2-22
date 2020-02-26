@@ -1,0 +1,34 @@
+---
+title: "gov 1006 2-22"
+author: "Ruth Zheng"
+date: "2/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(rstanarm)
+library(skimr)
+load("nes.rda")
+nes
+```
+
+```{r}
+subset <- nes %>%
+  as_tibble() %>%
+  select(year, partyid7, real_ideo, race_adj, age_discrete, educ1, female, income)
+```
+
+
+```{r}
+ggplot(subset, aes(x = year, y = real_ideo)) + geom_point()
+```
+
+
+
